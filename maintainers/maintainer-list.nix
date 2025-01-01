@@ -3416,6 +3416,11 @@
     githubId = 200617;
     name = "Ben Sima";
   };
+  bstanderline = {
+    github = "bstanderline";
+    githubId = 153822813;
+    name = "Ben Standerline";
+  };
   btlvr = {
     email = "btlvr@protonmail.com";
     github = "btlvr";
