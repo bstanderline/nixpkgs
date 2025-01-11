@@ -12,8 +12,10 @@ buildGoModule rec {
     owner = "elastic";
     repo = "elastic-agent";
     rev = "v${version}";
-    hash = "";
+    hash = "sha256-0y4321/BnkSLyYGUuZ79e9pJI0Fy5IhwPZzJpsYcyXo=";
   };
+
+  vendorHash = "sha256-pzAFiC4xSSgNsKjpXjQwxsfso6RZ9ULoPiujAqVXHcI=";
 
   meta = with lib; {
     description = "A single, unified way to add monitoring for logs, metrics, and other types of data to a host";
