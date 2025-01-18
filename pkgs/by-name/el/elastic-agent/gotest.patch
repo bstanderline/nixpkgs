@@ -1,0 +1,24 @@
+diff --git a/dev-tools/mage/gotest.go b/dev-tools/mage/gotest.go
+index 11294ca..5dc80ce 100644
+--- a/dev-tools/mage/gotest.go
++++ b/dev-tools/mage/gotest.go
+@@ -19,8 +19,6 @@ import (
+ 
+ 	"github.com/magefile/mage/mg"
+ 	"github.com/magefile/mage/sh"
+-
+-	"github.com/elastic/elastic-agent/dev-tools/mage/gotool"
+ )
+ 
+ // GoTestArgs are the arguments used for the "go*Test" targets and they define
+@@ -172,9 +170,7 @@ func GoTestIntegrationForModule(ctx context.Context) error {
+ 
+ // InstallGoTestTools installs additional tools that are required to run unit and integration tests.
+ func InstallGoTestTools() error {
+-	return gotool.Install(
+-		gotool.Install.Package("gotest.tools/gotestsum"),
+-	)
++	return nil
+ }
+ 
+ func GoTestBuild(ctx context.Context, params GoTestArgs) error {
