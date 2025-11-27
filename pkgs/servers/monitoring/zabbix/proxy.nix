@@ -11,6 +11,8 @@
   pcre2,
   zlib,
   buildPackages,
+  libxml2,
+  libxml2Support ? false,
   odbcSupport ? true,
   unixODBC,
   snmpSupport ? stdenv.buildPlatform == stdenv.hostPlatform,
@@ -72,7 +74,8 @@ import ./versions.nix (
     ++ optional sqliteSupport sqlite
     ++ optional sshSupport libssh2
     ++ optional mysqlSupport libmysqlclient
-    ++ optional postgresqlSupport libpq;
+    ++ optional postgresqlSupport libpq
+    ++ optional libxml2Support libxml2;
 
     configureFlags = [
       "--enable-ipv6"
@@ -89,7 +92,8 @@ import ./versions.nix (
     ++ optional sqliteSupport "--with-sqlite3=${sqlite.dev}"
     ++ optional sshSupport "--with-ssh2=${libssh2.dev}"
     ++ optional mysqlSupport "--with-mysql=${fake_mysql_config}"
-    ++ optional postgresqlSupport "--with-postgresql";
+    ++ optional postgresqlSupport "--with-postgresql"
+    ++ optional libxml2Support "--with-libxml2";
 
     prePatch = ''
       find database -name data.sql -exec sed -i 's|/usr/bin/||g' {} +
